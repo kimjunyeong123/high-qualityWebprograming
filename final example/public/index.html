@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생각의 정원</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header row bg-light py-3">
+            <div class="col-12 d-flex align-items-center justify-content-between">
+                <div id="weather" class="mr-3"></div> 
+                <h1 class="text-center flex-grow-1"><i class="bi bi-tree"></i>&nbsp;&nbsp;생각의 정원&nbsp;&nbsp;<i class="bi bi-tree"></i></h1>
+                <div id="auth-buttons">
+                    <button class="btn btn-primary" id="login-btn">로그인</button>
+                    <button class="btn btn-secondary ml-2" id="register-btn">회원가입</button>
+                </div>
+                <div id="user-info" class="ml-2" style="display: none;">
+                    <span id="nickname-display"></span>
+                    <button class="btn btn-danger ml-2" id="logout-btn">로그아웃</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 diary-section">
+                <h2><center><i class="bi bi-journals"></i>&nbsp;&nbsp;나의 일기</center></h2>
+                <ul class="list-group mt-2" id="diary"></ul>
+                <div class="text-center mt-2">
+                    <button id="add-diary" class="btn btn-success">+</button>
+                </div>
+            </div>
+            <div class="col-md-8 community-section">
+                <h2><center><i class="bi bi-chat-left-text"></i>&nbsp;&nbsp;커뮤니티 게시판</center></h2>
+                <div class="row mt-2" id="community-board"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="diaryModal" class="modal">
+        <div class="modal-content">
+            <h3>새 일기 추가</h3>
+            <form id="diaryForm">
+                <div class="form-group">
+                    <label for="diaryTitle">제목:</label>
+                    <input type="text" class="form-control" id="diaryTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="diaryContent">내용:</label>
+                    <textarea class="form-control" id="diaryContent" rows="4" required></textarea>
+                    <div class="form-group">
+                        <label for="diaryImage">이미지:</label>
+                        <input type="file" class="form-control-file" id="diaryImage">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">저장</button>
+                <button type="button" class="btn btn-secondary" id="closeModal">취소</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h3>로그인</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">사용자 이름:</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호:</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">로그인</button>
+                <button type="button" class="btn btn-secondary" id="closeLoginModal">취소</button>
+            </form>
+            <p>계정이 없으신가요? <a href="#" id="show-register">회원가입</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h3>회원가입</h3>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="reg-username">사용자 이름:</label>
+                    <input type="text" class="form-control" id="reg-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">비밀번호:</label>
+                    <input type="password" class="form-control" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-nickname">닉네임:</label>
+                    <input type="text" class="form-control" id="reg-nickname" required>
+                </div>
+                <button type="submit" class="btn btn-primary">회원가입</button>
+                <button type="button" class="btn btn-secondary" id="closeRegisterModal">취소</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
